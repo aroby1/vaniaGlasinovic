@@ -1,36 +1,47 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Vannia Glasinovic — Attorney Website
 
-## Getting Started
+Bilingual (English/Spanish) marketing site for Vannia Glasinovic, an immigration & environmental attorney in Eugene, Oregon. Built with Next.js App Router, React 19, and Tailwind CSS v4.
 
-First, run the development server:
+**Live routes:** Home, About, Services (with 6 individual practice-area pages), Book with Me, Make a Payment, Resources, Consultation Intake, Privacy Policy.
+
+## Stack
+
+- **Framework:** Next.js 16 (App Router), React 19, TypeScript
+- **Styling:** Tailwind CSS v4 (`app/globals.css`, no separate config file)
+- **Icons:** lucide-react
+- **Email:** Resend (contact form + consultation intake form)
+- **Fonts:** Lora self-hosted via `next/font/google`
+- **Deployment:** Vercel
+
+## Getting started
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Environment variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Create `.env.local` for local development (never committed — see `.gitignore`):
 
-## Learn More
+```bash
+RESEND_API_KEY=re_xxxxxxxx
+```
 
-To learn more about Next.js, take a look at the following resources:
+Without this, the contact form (`components/contact-form.tsx`) and the intake form (`app/intake/page.tsx`) return a real error instead of sending mail — see `app/api/contact/route.ts` and `app/api/intake/route.ts`. The Resend account sending mail must be signed up with the address in `EMAIL` (`lib/site.ts`) for delivery to work, since the `from` address is Resend's shared testing sender (`onboarding@resend.dev`).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Project structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `app/` — routes (App Router). Every page is a client component that owns its own language-toggle state; there's no shared locale context by design.
+- `components/` — shared header, footer, logo mark, language toggle, and the contact form.
+- `lib/site.ts` — shared constants and all six practice-area content objects (bilingual copy, requirements, process steps, FAQs).
+- `lib/use-sync-html-lang.ts` — keeps `<html lang>` in sync with the visitor's language toggle.
+- `archive/` — a superseded pre-Figma draft, kept for history only, not wired into routing.
 
-## Deploy on Vercel
+For the full standing-decisions log (design system rules, bilingual pattern, what's a deliberate placeholder vs. a bug, and what's still open), see **`CLAUDE.md`**. For the product brief (audience, positioning, brand voice), see **`PRODUCT.md`**.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Deploying
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project deploys to Vercel. Push to `main` (or open a PR) and Vercel builds automatically once the project is connected. Set `RESEND_API_KEY` in the Vercel project's Environment Variables — the app will build without it, but the forms won't send mail until it's set.

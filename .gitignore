@@ -23,6 +23,16 @@
 # misc
 .DS_Store
 *.pem
+desktop.ini
+
+# claude code (personal/machine-specific, not shared config)
+.claude/settings.local.json
+
+# impeccable design linter cache
+.impeccable/hook.cache.json
+
+# superseded static prototype, kept locally only
+/mockup/
 
 # debug
 npm-debug.log*
