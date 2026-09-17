@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { services } from "@/lib/site";
 
+export function generateStaticParams() {
+  return services.map((s) => ({ slug: s.slug }));
+}
+
 export async function generateMetadata({
   params,
 }: {
