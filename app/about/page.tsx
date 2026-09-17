@@ -37,6 +37,7 @@ export default function AboutPage() {
                 ? "Vannia Glasinovic is an attorney based in Eugene, Oregon, primarily focusing on immigration law and environmental law. Originally from Bolivia, she migrated to the United States and transitioned from environmental advocacy into immigration law, helping immigrants navigate the legal system while actively fighting discrimination."
                 : "Vannia Glasinovic es una abogada con sede en Eugene, Oregón, que se enfoca principalmente en el derecho de inmigración y el derecho ambiental. Originaria de Bolivia, emigró a los Estados Unidos y pasó del activismo ambiental al derecho de inmigración, ayudando a los inmigrantes a navegar el sistema legal mientras lucha activamente contra la discriminación."}
             </p>
+            <img src="/vannia-story.jpg" alt="Vannia Glasinovic" className="w-full h-auto my-8" />
             <p className="text-[#1C0A06]/65 leading-loose text-[1.05rem]">
               {L === "en"
                 ? "She knows the weight of the paperwork, the waiting, and the hope. That's why she guides every case as if it were her own."
