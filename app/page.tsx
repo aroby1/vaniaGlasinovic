@@ -194,8 +194,16 @@ export default function Home() {
               { en: { t: "Review Your Options Together", d: "We evaluate your unique situation and outline every viable legal path, no surprises." }, es: { t: "Revisa Tus Opciones Juntos", d: "Evaluamos tu situación y delineamos cada camino legal viable, sin sorpresas." } },
               { en: { t: "We Fight for Your Future", d: "Vannia handles the filings and hearings. You focus on your life and your family." }, es: { t: "Luchamos por Tu Futuro", d: "Vannia maneja las solicitudes y audiencias. Tú te enfocas en tu vida y tu familia." } },
             ].map((step, i) => (
-              <div key={i} className="relative p-8 lg:p-10 md:pt-10">
-                <span className="hidden md:block absolute -top-[5px] left-8 lg:left-10 w-2.5 h-2.5 rounded-full bg-[#D4673B]" />
+              <div key={i} className="relative p-8 lg:p-10 md:pt-12">
+                <span
+                  className="hidden md:flex absolute -top-[19px] left-8 lg:left-10 w-9 h-9 rounded-full bg-[#B84832] border-2 border-[#0E0503] text-white items-center justify-center font-bold text-[15px]"
+                  style={{ fontFamily: "var(--font-lora), Georgia, serif" }}
+                >
+                  {i + 1}
+                </span>
+                <span className="md:hidden inline-flex w-7 h-7 rounded-full bg-[#B84832] text-white items-center justify-center font-bold text-[13px] mb-3" style={{ fontFamily: "var(--font-lora), Georgia, serif" }}>
+                  {i + 1}
+                </span>
                 <h3 className="text-white text-lg font-medium mb-2">{step[L].t}</h3>
                 <p className="text-white/45 text-sm leading-relaxed">{step[L].d}</p>
               </div>
