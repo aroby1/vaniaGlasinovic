@@ -25,14 +25,20 @@
 *.pem
 desktop.ini
 
-# claude code (personal/machine-specific, not shared config)
-.claude/settings.local.json
+# claude code (local tooling/config, not app code — kept on disk, not pushed)
+.claude/
 
-# impeccable design linter cache
-.impeccable/hook.cache.json
+# impeccable design linter (local tooling, not app code)
+.impeccable/
 
-# superseded static prototype, kept locally only
+# AI workflow / product docs (kept locally for context, not part of the deployed app)
+CLAUDE.md
+PRODUCT.md
+DESIGN.md
+
+# superseded/unused drafts, kept locally only
 /mockup/
+/archive/
 
 # debug
 npm-debug.log*
