@@ -15,9 +15,9 @@ const geist = Geist({
   subsets: ["latin", "latin-ext"],
 });
 
-const TITLE_DEFAULT = "Vannia Glasinovic | Immigration & Environmental Attorney in Eugene, Oregon";
+const TITLE_DEFAULT = "Vannia Glasinovic | Abogada de Inmigración y Medio Ambiente en Eugene, Oregón";
 const DESCRIPTION =
-  "Immigration and environmental law attorney in Eugene, Oregon. Citizenship, asylum, deportation defense, and more, in English and Spanish.";
+  "Abogada de inmigración y derecho ambiental en Eugene, Oregón. Ciudadanía, asilo, defensa contra la deportación y más, en español e inglés.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -31,7 +31,8 @@ export const metadata: Metadata = {
     description: DESCRIPTION,
     url: SITE_URL,
     siteName: "Vannia Glasinovic",
-    locale: "en_US",
+    locale: "es_US",
+    alternateLocale: ["en_US"],
     type: "website",
   },
   twitter: {
@@ -62,7 +63,7 @@ const jsonLd = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${lora.variable} ${geist.variable} h-full antialiased`}>
+    <html lang="es" className={`${lora.variable} ${geist.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col">
         <script
           type="application/ld+json"

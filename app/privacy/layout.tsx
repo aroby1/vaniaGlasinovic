@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy",
-  description: "How Glasinovic Law Office collects, uses, and protects your information.",
+  title: "Política de Privacidad",
+  description: "Cómo Glasinovic Law Office recopila, usa y protege tu información.",
 };
 
 export default function PrivacyLayout({ children }: LayoutProps<"/privacy">) {

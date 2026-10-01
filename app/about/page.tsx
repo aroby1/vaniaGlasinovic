@@ -3,12 +3,11 @@
 import { useState } from "react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
-import { Cta } from "@/components/cta";
 import { type Lang } from "@/lib/site";
 import { useSyncHtmlLang } from "@/lib/use-sync-html-lang";
 
 export default function AboutPage() {
-  const [lang, setLang] = useState<Lang>("en");
+  const [lang, setLang] = useState<Lang>("es");
   const L = lang;
   useSyncHtmlLang(lang);
 
@@ -73,26 +72,12 @@ export default function AboutPage() {
                 : "Su trayectoria personal y profesional desde Bolivia hasta Oregón está documentada en este cortometraje, producido como parte del proyecto Latino Roots de la Universidad de Oregón."}
             </p>
             <div className="flex flex-wrap gap-4 items-center">
-              <Cta href="/book">
-                {L === "en" ? "Book a Consultation" : "Agenda una Consulta"}
-              </Cta>
               <a href="https://latinoroots.uoregon.edu/aiovg_videos/upward-migration/" target="_blank" rel="noopener noreferrer" className="text-[#B84832] text-sm font-semibold hover:text-[#93381F]">
                 {L === "en" ? "Watch the Film →" : "Ver el Documental →"}
               </a>
             </div>
           </div>
         </div>
-
-        <section className="bg-[#0E0503] text-center py-20 border-t border-white/5">
-          <div className="max-w-2xl mx-auto px-6">
-            <h2 className="text-white font-normal text-[clamp(1.8rem,4.4vw,3rem)] max-w-[18ch] mx-auto mb-7">
-              {L === "en" ? "Ready to tell her your story?" : "¿Lista para contarle su historia?"}
-            </h2>
-            <Cta href="/book">
-              {L === "en" ? "Book a Consultation" : "Agenda una Consulta"}
-            </Cta>
-          </div>
-        </section>
       </main>
 
       <SiteFooter lang={lang} setLang={setLang} />

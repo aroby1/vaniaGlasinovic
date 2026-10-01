@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Make a Payment",
+  title: "Hacer un Pago",
   description:
-    "Pay your legal fees online through our secure Docketwise client portal.",
+    "Paga tus honorarios legales en línea a través de nuestro portal seguro de clientes Docketwise.",
 };
 
 export default function PaymentLayout({ children }: LayoutProps<"/payment">) {

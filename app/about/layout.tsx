@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About",
+  title: "Acerca De",
   description:
-    "Meet Vannia Glasinovic, an immigration and environmental attorney in Eugene, Oregon who has lived the immigrant journey herself.",
+    "Conoce a Vannia Glasinovic, abogada de inmigración y medio ambiente en Eugene, Oregón, que ha vivido en carne propia el camino del inmigrante.",
 };
 
 export default function AboutLayout({ children }: LayoutProps<"/about">) {

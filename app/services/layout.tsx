@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  // Object form so the site-wide suffix also reaches the /services/[slug] pages.
-  title: { default: "Services", template: "%s — Vannia Glasinovic" },
+  title: "Servicios",
   description:
-    "Deportation defense, family petitions, naturalization, green cards, DACA, U and T visas, VAWA, SIJS, waivers, asylum, and immigration appeals with attorney Vannia Glasinovic.",
+    "Defensa contra la deportación, peticiones familiares, naturalización, residencia permanente, DACA, visas U y T, VAWA, SIJS, perdones, asilo y apelaciones migratorias con la abogada Vannia Glasinovic.",
 };
 
 export default function ServicesLayout({ children }: LayoutProps<"/services">) {

@@ -1,11 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import { ExternalLink } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
-import { Cta } from "@/components/cta";
 import { type Lang } from "@/lib/site";
 import { useSyncHtmlLang } from "@/lib/use-sync-html-lang";
 
@@ -40,7 +38,7 @@ const groups = [
 ];
 
 export default function ResourcesPage() {
-  const [lang, setLang] = useState<Lang>("en");
+  const [lang, setLang] = useState<Lang>("es");
   const L = lang;
   useSyncHtmlLang(lang);
 
@@ -81,23 +79,10 @@ export default function ResourcesPage() {
 
           <div className="rounded-2xl bg-[#1C0A06]/[0.03] p-6 text-[#1C0A06]/50 text-sm leading-relaxed">
             {L === "en"
-              ? "These links lead to external and government sites not operated by Glasinovic Law Office. They're provided for informational purposes only and don't substitute for personalized legal advice. Can't find what you're looking for?"
-              : "Estos enlaces llevan a sitios externos y del gobierno que no son operados por Glasinovic Law Office. Se proporcionan solo con fines informativos y no sustituyen el asesoramiento legal personalizado. ¿No encuentras lo que buscas?"}
-            {" "}
-            <Link href="/book" className="text-[#B84832] font-semibold hover:text-[#93381F]">{L === "en" ? "Ask Vannia →" : "Pregúntale a Vannia →"}</Link>
+              ? "These links lead to external and government sites not operated by Glasinovic Law Office. They're provided for informational purposes only and don't substitute for personalized legal advice."
+              : "Estos enlaces llevan a sitios externos y del gobierno que no son operados por Glasinovic Law Office. Se proporcionan solo con fines informativos y no sustituyen el asesoramiento legal personalizado."}
           </div>
         </div>
-
-        <section className="bg-[#0E0503] text-center py-20 border-t border-white/5">
-          <div className="max-w-2xl mx-auto px-6">
-            <h2 className="text-white font-normal text-[clamp(1.8rem,4.4vw,3rem)] max-w-[20ch] mx-auto mb-7">
-              {L === "en" ? "Need guidance made for your case?" : "¿Necesitas orientación personalizada?"}
-            </h2>
-            <Cta href="/book">
-              {L === "en" ? "Book a Consultation" : "Agenda una Consulta"}
-            </Cta>
-          </div>
-        </section>
       </main>
 
       <SiteFooter lang={lang} setLang={setLang} />

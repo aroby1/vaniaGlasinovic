@@ -39,10 +39,8 @@ export function SiteFooter({ lang, setLang }: { lang: Lang; setLang: (l: Lang) =
         </div>
 
         <div>
-          <p className="text-white text-[10px] tracking-[0.3em] uppercase font-bold mb-5">{L === "en" ? "Get Started" : "Comienza"}</p>
+          <p className="text-white text-[10px] tracking-[0.3em] uppercase font-bold mb-5">{L === "en" ? "Clients" : "Clientes"}</p>
           <ul className="space-y-3">
-            <li><Link href="/book" className="text-white/25 hover:text-white/60 text-xs transition-colors">{L === "en" ? "Book with Me" : "Agendar Cita"}</Link></li>
-            <li><Link href="/intake" className="text-white/25 hover:text-white/60 text-xs transition-colors">{L === "en" ? "Consultation Intake Form" : "Formulario de Ingreso"}</Link></li>
             <li><Link href="/payment" className="text-white/25 hover:text-white/60 text-xs transition-colors">{L === "en" ? "Make a Payment" : "Hacer un Pago"}</Link></li>
           </ul>
         </div>

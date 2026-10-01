@@ -9,7 +9,7 @@ import { PAYMENT_URL, PHONE_DISPLAY, PHONE_TEL, EMAIL, type Lang } from "@/lib/s
 import { useSyncHtmlLang } from "@/lib/use-sync-html-lang";
 
 export default function PaymentPage() {
-  const [lang, setLang] = useState<Lang>("en");
+  const [lang, setLang] = useState<Lang>("es");
   const L = lang;
   useSyncHtmlLang(lang);
 
@@ -77,7 +77,7 @@ export default function PaymentPage() {
           </div>
         </div>
 
-        <div className="max-w-4xl mx-auto px-6 lg:px-16 pt-16 text-center">
+        <div className="max-w-4xl mx-auto px-6 lg:px-16 pt-16 pb-20 text-center">
           <p className="text-[#1C0A06]/50 text-[0.85rem] mb-4">
             {L === "en" ? "Questions about a charge or an invoice?" : "¿Preguntas sobre un cargo o una factura?"}
           </p>
@@ -90,21 +90,6 @@ export default function PaymentPage() {
             </a>
           </div>
         </div>
-
-        <section className="max-w-7xl mx-auto px-6 lg:px-16 pt-16 pb-20">
-          <h2 className="font-normal text-[clamp(1.5rem,3vw,2rem)] mb-6" style={{ fontFamily: "var(--font-lora), Georgia, serif" }}>
-            {L === "en" ? "Frequently Asked" : "Preguntas Frecuentes"}
-          </h2>
-          {[
-            { en: { q: "Is it safe to pay online?", a: "Yes. Payments are processed securely through LawPay, a payment platform built specifically for law firms, integrated with our Docketwise client portal." }, es: { q: "¿Es seguro pagar en línea?", a: "Sí. Los pagos se procesan de forma segura a través de LawPay, una plataforma de pago diseñada específicamente para bufetes de abogados, integrada con nuestro portal de clientes Docketwise." } },
-            { en: { q: "Do I need an account to pay?", a: "You'll need to be an existing client with an open case. Vannia will send you an invoice with a secure payment link, or you can log into the Client Portal to view and pay it there." }, es: { q: "¿Necesito una cuenta para pagar?", a: "Necesitas ser cliente actual con un caso abierto. Vannia te enviará una factura con un enlace de pago seguro, o puedes iniciar sesión en el Portal del Cliente para verla y pagarla ahí." } },
-          ].map((f, i) => (
-            <div key={i} className="border-t border-[#1C0A06]/8 py-6 last:border-b">
-              <h3 className="text-[1rem] font-semibold mb-2">{f[L].q}</h3>
-              <p className="text-[#1C0A06]/50 text-[0.9rem] leading-relaxed max-w-[70ch]">{f[L].a}</p>
-            </div>
-          ))}
-        </section>
       </main>
 
       <SiteFooter lang={lang} setLang={setLang} />

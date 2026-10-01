@@ -25,20 +25,6 @@ export function LangToggle({
       aria-label="Language"
     >
       <button
-        onClick={() => setLang("en")}
-        aria-pressed={lang === "en"}
-        title="Switch to English"
-        className={`px-2.5 py-1 transition-colors ${
-          lang === "en"
-            ? "bg-[#B84832] text-white"
-            : dark
-              ? "text-white/45 hover:text-white"
-              : "text-[#1C0A06]/45 hover:text-[#B84832]"
-        }`}
-      >
-        {enLabel}
-      </button>
-      <button
         onClick={() => setLang("es")}
         aria-pressed={lang === "es"}
         title="Cambiar a español"
@@ -51,6 +37,20 @@ export function LangToggle({
         }`}
       >
         {esLabel}
+      </button>
+      <button
+        onClick={() => setLang("en")}
+        aria-pressed={lang === "en"}
+        title="Switch to English"
+        className={`px-2.5 py-1 transition-colors ${
+          lang === "en"
+            ? "bg-[#B84832] text-white"
+            : dark
+              ? "text-white/45 hover:text-white"
+              : "text-[#1C0A06]/45 hover:text-[#B84832]"
+        }`}
+      >
+        {enLabel}
       </button>
     </div>
   );

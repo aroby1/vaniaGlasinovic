@@ -8,16 +8,16 @@ import { useSyncHtmlLang } from "@/lib/use-sync-html-lang";
 
 const sections = [
   {
-    en: { h: "Information We Collect", b: "When you submit a contact form, request a consultation, or email or call our office, we collect the information you provide directly, such as your name, phone number, email address, and details about your case. We do not collect sensitive information beyond what you choose to share with us." },
-    es: { h: "Información que Recopilamos", b: "Cuando envías un formulario de contacto, solicitas una consulta, o nos escribes o llamas, recopilamos la información que nos proporcionas directamente, como tu nombre, número de teléfono, correo electrónico y detalles sobre tu caso. No recopilamos información sensible más allá de lo que decidas compartir con nosotros." },
+    en: { h: "Information We Collect", b: "When you email or call our office, we collect the information you provide directly, such as your name, phone number, email address, and details about your case. We do not collect sensitive information beyond what you choose to share with us." },
+    es: { h: "Información que Recopilamos", b: "Cuando nos escribes o llamas, recopilamos la información que nos proporcionas directamente, como tu nombre, número de teléfono, correo electrónico y detalles sobre tu caso. No recopilamos información sensible más allá de lo que decidas compartir con nosotros." },
   },
   {
-    en: { h: "How We Use Your Information", b: "We use the information you provide solely to respond to your inquiry, schedule a consultation, and, if you become a client, to represent you in your case. We do not sell, rent, or share your personal information with third parties for marketing purposes." },
-    es: { h: "Cómo Usamos Tu Información", b: "Usamos la información que proporcionas únicamente para responder a tu consulta, agendar una cita, y, si te conviertes en clienta o cliente, para representarte en tu caso. No vendemos, alquilamos ni compartimos tu información personal con terceros con fines de mercadeo." },
+    en: { h: "How We Use Your Information", b: "We use the information you provide solely to respond to your inquiry and, if you become a client, to represent you in your case. We do not sell, rent, or share your personal information with third parties for marketing purposes." },
+    es: { h: "Cómo Usamos Tu Información", b: "Usamos la información que proporcionas únicamente para responder a tu consulta y, si te conviertes en clienta o cliente, para representarte en tu caso. No vendemos, alquilamos ni compartimos tu información personal con terceros con fines de mercadeo." },
   },
   {
-    en: { h: "No Attorney-Client Relationship", b: "Submitting a contact form or otherwise reaching out through this website does not create an attorney-client relationship. That relationship begins only once Vannia Glasinovic agrees to represent you, typically confirmed in writing." },
-    es: { h: "No se Crea una Relación Abogado-Cliente", b: "Enviar un formulario de contacto o comunicarte de otra manera a través de este sitio no crea una relación abogado-cliente. Esa relación comienza únicamente cuando Vannia Glasinovic acepta representarte, normalmente confirmado por escrito." },
+    en: { h: "No Attorney-Client Relationship", b: "Contacting our office or using this website does not create an attorney-client relationship. That relationship begins only once Vannia Glasinovic agrees to represent you, typically confirmed in writing." },
+    es: { h: "No se Crea una Relación Abogado-Cliente", b: "Comunicarte con nuestra oficina o usar este sitio no crea una relación abogado-cliente. Esa relación comienza únicamente cuando Vannia Glasinovic acepta representarte, normalmente confirmado por escrito." },
   },
   {
     en: { h: "Third-Party Links", b: "Our Resources page links to official government and nonprofit websites (such as USCIS, EOIR, and legal-aid organizations) that we do not operate or control. Those sites have their own privacy practices, and we encourage you to review them separately." },
@@ -42,7 +42,7 @@ const sections = [
 ];
 
 export default function PrivacyPage() {
-  const [lang, setLang] = useState<Lang>("en");
+  const [lang, setLang] = useState<Lang>("es");
   const L = lang;
   useSyncHtmlLang(lang);
 

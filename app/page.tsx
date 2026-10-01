@@ -1,12 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
-import { ChevronDown, ArrowRight } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { Cta } from "@/components/cta";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
-import { ContactForm } from "@/components/contact-form";
 import { services, type Lang } from "@/lib/site";
 import { useSyncHtmlLang } from "@/lib/use-sync-html-lang";
 
@@ -15,16 +13,8 @@ const HERO_BG = "/hero-bolivia.webp";
 // The unsharpened hero-bolivia-trimmed.webp is kept as a backup.
 const HERO_TRIMMED = "/hero-bolivia-trimmed-sharp.webp";
 
-// Glass shortcut pills in the hero, each opening its practice-area page.
-const HERO_LINKS = [
-  { slug: "deportation-defense", en: "Deportation Defense", es: "Defensa de Deportación" },
-  { slug: "family-based-petitions", en: "Family Petitions", es: "Peticiones Familiares" },
-  { slug: "naturalization", en: "Naturalization", es: "Naturalización" },
-  { slug: "asylum", en: "Asylum", es: "Asilo" },
-];
-
 export default function Home() {
-  const [lang, setLang] = useState<Lang>("en");
+  const [lang, setLang] = useState<Lang>("es");
   const [activeSvc, setActiveSvc] = useState(0);
   const L = lang;
   useSyncHtmlLang(lang);
@@ -89,15 +79,6 @@ export default function Home() {
               <Cta href="/services" className="mr-2 mb-1 sm:mb-0">
                 {L === "en" ? "Our Practice Areas" : "Áreas de Práctica"}
               </Cta>
-              {HERO_LINKS.map((h) => (
-                <Link
-                  key={h.slug}
-                  href={`/services/${h.slug}`}
-                  className="inline-flex items-center gap-1.5 rounded-full border border-white/45 bg-white/12 backdrop-blur-md px-3.5 py-2 sm:px-4 sm:py-2.5 text-white text-[13px] sm:text-[13.5px] font-medium transition-colors duration-300 hover:bg-white/25 hover:border-white/70"
-                >
-                  {h[L]} <ArrowRight size={14} strokeWidth={1.75} />
-                </Link>
-              ))}
             </div>
             </div>
           </div>
@@ -141,10 +122,7 @@ export default function Home() {
               <div className="absolute inset-0 bg-gradient-to-t from-[#1C0A06]/90 via-[#1C0A06]/30 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-10 lg:p-12">
                 <h3 className="text-white text-2xl lg:text-[1.9rem] leading-tight font-medium mb-4" style={{ fontFamily: "var(--font-lora), Georgia, serif" }}>{shown[L].t}</h3>
-                <p className="text-white/75 leading-relaxed max-w-lg mb-6">{shown[L].d}</p>
-                <Link href={`/services/${shown.slug}`} className="inline-flex items-center gap-2 text-white text-[13px] font-semibold hover:text-[#F0B9A4] transition-colors duration-300">
-                  {L === "en" ? "Learn more" : "Más información"} <ArrowRight size={14} strokeWidth={1.75} />
-                </Link>
+                <p className="text-white/75 leading-relaxed max-w-lg">{shown[L].d}</p>
               </div>
             </div>
           </div>
@@ -166,26 +144,10 @@ export default function Home() {
                   <img src={svc.photo} alt="" aria-hidden className="absolute inset-0 w-full h-full object-cover" />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#1C0A06]/70 via-transparent to-transparent" />
                 </div>
-                <p className="text-[#1C0A06]/55 text-sm leading-relaxed mb-4">{svc[L].d}</p>
-                <Link href={`/services/${svc.slug}`} className="inline-flex items-center gap-1.5 text-[#B84832] text-[13px] font-semibold">
-                  {L === "en" ? "Learn more" : "Más información"} <ArrowRight size={14} strokeWidth={1.75} />
-                </Link>
+                <p className="text-[#1C0A06]/55 text-sm leading-relaxed">{svc[L].d}</p>
               </div>
             </details>
           ))}
-        </div>
-      </section>
-
-      {/* Contact form */}
-      <section className="bg-white py-24 lg:py-32 border-t border-[#1C0A06]/8">
-        <div className="reveal max-w-7xl mx-auto px-6 lg:px-16 grid lg:grid-cols-[5fr_7fr] gap-16 items-start">
-          <div>
-            <h2 className="text-3xl lg:text-4xl font-medium leading-tight mb-6" style={{ fontFamily: "var(--font-lora), Georgia, serif" }}>{L === "en" ? "Tell Us About Your Case" : "Cuéntanos Sobre Tu Caso"}</h2>
-            <p className="text-[#1C0A06]/55 text-[15px] leading-relaxed max-w-sm">
-              {L === "en" ? "Prefer to write first? Send a few details and we will follow up." : "¿Prefieres escribir primero? Envía algunos detalles y te contactaremos."}
-            </p>
-          </div>
-          <ContactForm L={L} />
         </div>
       </section>
 
@@ -211,46 +173,6 @@ export default function Home() {
               </Cta>
             </div>
           </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Homepage FAQ — general questions people ask before the first call */}
-      <section className="bg-white py-24 lg:py-32 border-t border-[#1C0A06]/8">
-        <div className="reveal max-w-3xl mx-auto px-6">
-          <h2 className="text-3xl lg:text-4xl font-medium mb-3 text-center" style={{ fontFamily: "var(--font-lora), Georgia, serif" }}>
-            {L === "en" ? "Common Questions" : "Preguntas Frecuentes"}
-          </h2>
-          <p className="text-[#1C0A06]/55 text-[1.05rem] mb-10 text-center">
-            {L === "en" ? "A few things people ask before their first call." : "Algunas preguntas frecuentes antes de la primera llamada."}
-          </p>
-          <div className="border-t border-[#1C0A06]/8">
-            {[
-              {
-                en: { q: "Is my consultation confidential?", a: "Yes. What you share with Vannia stays between you and her." },
-                es: { q: "¿Mi consulta es confidencial?", a: "Sí. Lo que compartas con Vannia queda entre tú y ella." },
-              },
-              {
-                en: { q: "Do you work with clients outside Eugene?", a: "Yes. Vannia represents clients across Oregon and California, in person and remotely." },
-                es: { q: "¿Trabajan con clientes fuera de Eugene?", a: "Sí. Vannia representa a clientes en Oregón y California, en persona y de forma remota." },
-              },
-              {
-                en: { q: "I am not sure which practice area fits my case. What do I do?", a: "Reach out anyway. Vannia reviews your situation and tells you clearly which path applies, no pressure." },
-                es: { q: "No sé cuál área aplica a mi caso. ¿Qué hago?", a: "Contáctanos de todos modos. Vannia revisa tu situación y te dice con claridad cuál es tu camino, sin presión." },
-              },
-              {
-                en: { q: "Do I need to speak English?", a: "No. Every step, from your first call to hearing preparation, is available fully in Spanish." },
-                es: { q: "¿Necesito hablar inglés?", a: "No. Cada paso, desde tu primera llamada hasta la preparación para audiencias, está disponible completamente en español." },
-              },
-            ].map((f, i) => (
-              <details key={i} className="group border-b border-[#1C0A06]/8">
-                <summary className="flex items-center justify-between gap-4 py-5 cursor-pointer text-[0.98rem] font-medium marker:content-none [&::-webkit-details-marker]:hidden">
-                  {f[L].q}
-                  <ChevronDown size={16} className="text-[#1C0A06]/35 shrink-0 transition-transform duration-200 group-open:rotate-180" />
-                </summary>
-                <p className="text-[#1C0A06]/55 text-[0.92rem] leading-relaxed pb-5 max-w-[62ch]">{f[L].a}</p>
-              </details>
-            ))}
           </div>
         </div>
       </section>
