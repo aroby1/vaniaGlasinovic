@@ -1,8 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
-import { Phone, Mail, MapPin, ClipboardList, ArrowRight } from "lucide-react";
+import { Phone, Mail, MapPin } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { ContactForm } from "@/components/contact-form";
@@ -103,7 +102,7 @@ export default function BookPage() {
               <div className="absolute left-[19px] top-2 bottom-2 w-px bg-[#1C0A06]/10" />
               <ol className="space-y-8">
                 {[
-                  { en: { t: "Book a Free Consultation", d: "Call or fill out our contact form. We respond within one business day." }, es: { t: "Agenda una Consulta Gratuita", d: "Llama o completa nuestro formulario. Respondemos en un día hábil." } },
+                  { en: { t: "Book a Consultation", d: "Call or fill out our contact form. We respond within one business day." }, es: { t: "Agenda una Consulta", d: "Llama o completa nuestro formulario. Respondemos en un día hábil." } },
                   { en: { t: "Review Your Options Together", d: "We evaluate your unique situation and outline every viable legal path." }, es: { t: "Revisa Tus Opciones Juntos", d: "Evaluamos tu situación y delineamos cada camino legal viable." } },
                   { en: { t: "We Fight for Your Future", d: "Vannia handles the filings and hearings. You focus on your life." }, es: { t: "Luchamos por Tu Futuro", d: "Vannia maneja las solicitudes y audiencias. Tú te enfocas en tu vida." } },
                 ].map((s, i) => (
@@ -121,25 +120,6 @@ export default function BookPage() {
                   </li>
                 ))}
               </ol>
-            </div>
-
-            <div className="mt-10 border border-[#1C0A06]/10 bg-[#B84832]/[0.04] p-8 lg:p-10 flex flex-col sm:flex-row items-center gap-6 sm:gap-8">
-              <div className="w-14 h-14 rounded-full bg-white border border-[#B84832]/30 flex items-center justify-center shrink-0">
-                <ClipboardList size={22} className="text-[#B84832]" />
-              </div>
-              <div className="flex-1 text-center sm:text-left">
-                <h3 className="text-[1.05rem] font-medium mb-1.5">
-                  {L === "en" ? "Already Booked a Consultation?" : "¿Ya Agendaste tu Consulta?"}
-                </h3>
-                <p className="text-[#1C0A06]/55 text-sm leading-relaxed">
-                  {L === "en"
-                    ? "Fill out your intake form beforehand so Vannia already knows your situation when you talk."
-                    : "Completa tu formulario de ingreso antes para que Vannia ya conozca tu situación cuando hablen."}
-                </p>
-              </div>
-              <Link href="/intake" className="shrink-0 inline-flex items-center gap-2 px-7 py-3.5 bg-[#B84832] hover:bg-[#1C0A06] text-white text-[11px] tracking-[0.25em] uppercase font-bold transition-colors duration-200">
-                {L === "en" ? "Intake Form" : "Formulario"} <ArrowRight size={14} />
-              </Link>
             </div>
           </div>
         </section>

@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowRight, CreditCard, Lock, ShieldCheck, Phone, Mail } from "lucide-react";
+import { CreditCard, Lock, ShieldCheck, Phone, Mail } from "lucide-react";
+import { Cta } from "@/components/cta";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { PAYMENT_URL, PHONE_DISPLAY, PHONE_TEL, EMAIL, type Lang } from "@/lib/site";
@@ -32,14 +33,15 @@ export default function PaymentPage() {
         </div>
 
         <div className="max-w-2xl mx-auto px-6 pb-4">
-          <div className="border border-[#1C0A06]/10 p-10 lg:p-14 text-center">
+          <div className="rounded-[2rem] p-2 bg-[#1C0A06]/[0.03] ring-1 ring-[#1C0A06]/[0.06]">
+          <div className="rounded-[1.5rem] bg-white ring-1 ring-[#1C0A06]/[0.06] p-10 lg:p-14 text-center">
             <div className="w-14 h-14 rounded-full bg-[#B84832]/10 flex items-center justify-center mx-auto mb-7">
-              <CreditCard size={22} className="text-[#B84832]" />
+              <CreditCard size={22} strokeWidth={1.5} className="text-[#B84832]" />
             </div>
             <div className="max-w-sm mx-auto mb-7">
-              <a href={PAYMENT_URL} target="_blank" rel="noopener noreferrer" className="w-full py-4 px-8 bg-[#B84832] hover:bg-[#D4673B] text-white text-[12px] tracking-[0.3em] uppercase font-bold transition-colors duration-200 text-center flex items-center justify-center gap-2.5">
-                {L === "en" ? "Go to Client Portal" : "Ir al Portal del Cliente"} <ArrowRight size={15} />
-              </a>
+              <Cta href={PAYMENT_URL} external className="w-full">
+                {L === "en" ? "Go to Client Portal" : "Ir al Portal del Cliente"}
+              </Cta>
             </div>
             <p className="text-[#1C0A06]/30 text-[10px] tracking-wide mb-4">
               {L === "en" ? "Powered by Docketwise & LawPay · SSL Encrypted" : "Con tecnología de Docketwise y LawPay · Encriptado SSL"}
@@ -51,9 +53,10 @@ export default function PaymentPage() {
             </p>
             <div className="flex flex-wrap justify-center gap-2.5 pt-7 border-t border-[#1C0A06]/8">
               {["Visa", "Mastercard", "Amex", "Discover", "ACH Transfer"].map((c) => (
-                <span key={c} className="border border-[#1C0A06]/15 text-[#1C0A06]/50 text-[11px] tracking-widest uppercase px-3 py-1.5 font-bold">{c}</span>
+                <span key={c} className="rounded-full bg-[#1C0A06]/[0.04] text-[#1C0A06]/55 text-[11px] tracking-widest uppercase px-3 py-1.5 font-semibold">{c}</span>
               ))}
             </div>
+          </div>
           </div>
         </div>
 
@@ -65,8 +68,8 @@ export default function PaymentPage() {
               { Icon: CreditCard, en: "Client Funds Handled Properly", es: "Fondos Manejados Correctamente" },
             ].map(({ Icon, en, es }, i) => (
               <div key={i} className="flex flex-col items-center gap-3">
-                <div className="w-10 h-10 border border-[#B84832]/40 flex items-center justify-center">
-                  <Icon size={16} className="text-[#B84832]" />
+                <div className="w-10 h-10 rounded-full bg-[#B84832]/8 flex items-center justify-center">
+                  <Icon size={16} strokeWidth={1.5} className="text-[#B84832]" />
                 </div>
                 <span className="text-[#1C0A06]/55 text-[0.85rem]">{L === "en" ? en : es}</span>
               </div>

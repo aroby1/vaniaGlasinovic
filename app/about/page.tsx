@@ -1,9 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { Cta } from "@/components/cta";
 import { type Lang } from "@/lib/site";
 import { useSyncHtmlLang } from "@/lib/use-sync-html-lang";
 
@@ -73,9 +73,9 @@ export default function AboutPage() {
                 : "Su trayectoria personal y profesional desde Bolivia hasta Oregón está documentada en este cortometraje, producido como parte del proyecto Latino Roots de la Universidad de Oregón."}
             </p>
             <div className="flex flex-wrap gap-4 items-center">
-              <Link href="/book" className="px-7 py-3.5 bg-[#B84832] hover:bg-[#D4673B] text-white text-[11px] tracking-[0.2em] uppercase font-bold transition-colors duration-200">
+              <Cta href="/book">
                 {L === "en" ? "Book a Consultation" : "Agenda una Consulta"}
-              </Link>
+              </Cta>
               <a href="https://latinoroots.uoregon.edu/aiovg_videos/upward-migration/" target="_blank" rel="noopener noreferrer" className="text-[#B84832] text-sm font-semibold hover:text-[#93381F]">
                 {L === "en" ? "Watch the Film →" : "Ver el Documental →"}
               </a>
@@ -88,9 +88,9 @@ export default function AboutPage() {
             <h2 className="text-white font-normal text-[clamp(1.8rem,4.4vw,3rem)] max-w-[18ch] mx-auto mb-7">
               {L === "en" ? "Ready to tell her your story?" : "¿Lista para contarle su historia?"}
             </h2>
-            <Link href="/book" className="inline-block px-8 py-4 bg-[#B84832] hover:bg-[#D4673B] text-white text-[11px] tracking-[0.3em] uppercase font-bold transition-colors duration-200">
-              {L === "en" ? "Book Your Free Consultation" : "Agenda tu Consulta Gratis"}
-            </Link>
+            <Cta href="/book">
+              {L === "en" ? "Book a Consultation" : "Agenda una Consulta"}
+            </Cta>
           </div>
         </section>
       </main>

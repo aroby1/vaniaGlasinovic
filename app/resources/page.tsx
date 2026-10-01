@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ExternalLink } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { Cta } from "@/components/cta";
 import { type Lang } from "@/lib/site";
 import { useSyncHtmlLang } from "@/lib/use-sync-html-lang";
 
@@ -66,19 +67,19 @@ export default function ResourcesPage() {
               <p className="text-[#1C0A06]/50 text-sm mb-6 max-w-[60ch]">{g[L].d}</p>
               <div className="grid sm:grid-cols-2 gap-4">
                 {g.links.map((l, li) => (
-                  <a key={li} href={l.href} target="_blank" rel="noopener noreferrer" className="flex justify-between items-center gap-4 border border-[#1C0A06]/10 hover:border-[#B84832]/40 hover:bg-[#B84832]/5 p-5 transition-colors duration-200">
+                  <a key={li} href={l.href} target="_blank" rel="noopener noreferrer" className="group flex justify-between items-center gap-4 rounded-2xl ring-1 ring-[#1C0A06]/[0.08] hover:ring-[#B84832]/30 hover:bg-[#B84832]/[0.04] p-5 transition-[background-color,box-shadow] duration-500 ease-[cubic-bezier(0.32,0.72,0,1)]">
                     <div>
                       <h3 className="text-[0.95rem] font-semibold mb-0.5">{l[L].t}</h3>
                       <p className="text-[#1C0A06]/45 text-[0.82rem]">{l[L].d}</p>
                     </div>
-                    <ExternalLink size={16} className="text-[#1C0A06]/30 shrink-0" />
+                    <ExternalLink size={16} strokeWidth={1.5} className="text-[#1C0A06]/30 shrink-0 transition-[transform,color] duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:text-[#B84832] group-hover:translate-x-0.5 group-hover:-translate-y-px" />
                   </a>
                 ))}
               </div>
             </div>
           ))}
 
-          <div className="border border-dashed border-[#1C0A06]/15 p-6 text-[#1C0A06]/50 text-sm leading-relaxed">
+          <div className="rounded-2xl bg-[#1C0A06]/[0.03] p-6 text-[#1C0A06]/50 text-sm leading-relaxed">
             {L === "en"
               ? "These links lead to external and government sites not operated by Glasinovic Law Office. They're provided for informational purposes only and don't substitute for personalized legal advice. Can't find what you're looking for?"
               : "Estos enlaces llevan a sitios externos y del gobierno que no son operados por Glasinovic Law Office. Se proporcionan solo con fines informativos y no sustituyen el asesoramiento legal personalizado. ¿No encuentras lo que buscas?"}
@@ -92,9 +93,9 @@ export default function ResourcesPage() {
             <h2 className="text-white font-normal text-[clamp(1.8rem,4.4vw,3rem)] max-w-[20ch] mx-auto mb-7">
               {L === "en" ? "Need guidance made for your case?" : "¿Necesitas orientación personalizada?"}
             </h2>
-            <Link href="/book" className="inline-block px-8 py-4 bg-[#B84832] hover:bg-[#D4673B] text-white text-[11px] tracking-[0.3em] uppercase font-bold transition-colors duration-200">
-              {L === "en" ? "Book Your Free Consultation" : "Agenda tu Consulta Gratis"}
-            </Link>
+            <Cta href="/book">
+              {L === "en" ? "Book a Consultation" : "Agenda una Consulta"}
+            </Cta>
           </div>
         </section>
       </main>

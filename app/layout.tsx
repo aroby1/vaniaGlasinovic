@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import { Lora } from "next/font/google";
+import { Geist, Lora } from "next/font/google";
 import "./globals.css";
+import { SITE_URL } from "@/lib/site";
 
 const lora = Lora({
   variable: "--font-lora",
@@ -9,7 +10,10 @@ const lora = Lora({
   style: ["italic", "normal"],
 });
 
-const SITE_URL = "https://vanniaglasinovic.com";
+const geist = Geist({
+  variable: "--font-geist",
+  subsets: ["latin", "latin-ext"],
+});
 
 const TITLE_DEFAULT = "Vannia Glasinovic | Immigration & Environmental Attorney in Eugene, Oregon";
 const DESCRIPTION =
@@ -58,7 +62,7 @@ const jsonLd = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${lora.variable} h-full antialiased`}>
+    <html lang="en" className={`${lora.variable} ${geist.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col">
         <script
           type="application/ld+json"

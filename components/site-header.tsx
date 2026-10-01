@@ -2,11 +2,15 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Menu, X, Phone, Mail, ChevronDown } from "lucide-react";
+import { Menu, X, Phone } from "lucide-react";
 import { LogoMark } from "@/components/logo-mark";
 import { LangToggle } from "@/components/lang-toggle";
-import { PHONE_DISPLAY, PHONE_TEL, EMAIL, PAYMENT_URL, navLinks, services, type Lang } from "@/lib/site";
+import { PHONE_DISPLAY, PHONE_TEL, navLinks, type Lang } from "@/lib/site";
 
+const lora = { fontFamily: "var(--font-lora), Georgia, serif" };
+
+// "Dusk Masthead": a dark masthead with her name, the phone number and a payment button,
+// over a white menu row. Desktop pins the menu row; phones/tablets pin a compact dark bar instead.
 export function SiteHeader({
   lang,
   setLang,
@@ -18,153 +22,113 @@ export function SiteHeader({
 }) {
   const [mobile, setMobile] = useState(false);
   const L = lang;
+  const role = L === "en" ? "Immigration Attorney" : "Abogada de Inmigración";
+  const where = L === "en" ? "Eugene, Oregon" : "Eugene, Oregón";
+  const call = L === "en" ? "Call today" : "Llame hoy";
+  const pay = L === "en" ? "Make a Payment" : "Hacer un Pago";
 
   return (
     <>
-      <div className="bg-[#0E0503] min-h-9 flex items-center relative z-50 py-1.5">
-        <div className="max-w-7xl mx-auto px-5 w-full flex items-center justify-between gap-3">
-          <div className="flex items-center gap-3 sm:gap-5 min-w-0">
-            <a href={`tel:${PHONE_TEL}`} title={PHONE_DISPLAY} className="flex items-center gap-1.5 text-white/50 hover:text-white text-[10px] tracking-wide transition-colors shrink-0">
-              <Phone size={11} /> <span className="hidden sm:inline">{PHONE_DISPLAY}</span>
+      {/* Desktop masthead (scrolls away) */}
+      <div className="hidden lg:block bg-[#1C0A06] text-white">
+        <div className="max-w-7xl mx-auto px-5 py-6 flex items-center justify-between gap-8">
+          <Link href="/" className="flex items-center gap-4 min-w-0">
+            <LogoMark className="w-12 h-12 text-[#D4673B] shrink-0" />
+            <div className="min-w-0">
+              <p className="text-[34px] leading-none font-semibold tracking-[-0.01em]" style={lora}>Vannia Glasinovic</p>
+              <p className="mt-2 text-[15px] italic text-white/60" style={lora}>
+                {role} · {where} · English y Español
+              </p>
+            </div>
+          </Link>
+          <div className="flex items-center gap-7 shrink-0">
+            <a href={`tel:${PHONE_TEL}`} className="group text-right leading-tight">
+              <span className="block text-[14px] italic text-white/60" style={lora}>{call}</span>
+              <span className="block text-[28px] font-semibold tabular-nums text-[#D4673B] group-hover:text-[#E07A5F] transition-colors duration-300" style={lora}>
+                {PHONE_DISPLAY}
+              </span>
             </a>
-            <span className="hidden sm:block w-px h-3 bg-white/10" />
-            <a href={`mailto:${EMAIL}`} className="hidden sm:flex items-center gap-1.5 text-white/50 hover:text-white text-[10px] transition-colors">
-              <Mail size={11} /> {EMAIL}
-            </a>
-          </div>
-          <div className="flex items-center gap-3 sm:gap-4 shrink-0">
-            <LangToggle lang={lang} setLang={setLang} variant="dark" labels="full" />
-            <span className="hidden sm:block w-px h-3 bg-white/10" />
-            <a
-              href={PAYMENT_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              title={L === "en" ? "Opens Docketwise, our client portal, in a new tab" : "Abre Docketwise, nuestro portal de clientes, en una nueva pestaña"}
-              className="text-white/50 hover:text-white sm:bg-[#B84832] sm:hover:bg-[#D4673B] sm:text-white text-[10px] tracking-widest uppercase font-bold sm:px-3 sm:py-1 transition-colors whitespace-nowrap"
+            <Link
+              href="/payment"
+              className="rounded-full border border-white/30 px-5 py-2.5 text-[11px] tracking-[0.18em] uppercase font-semibold transition-colors duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] hover:border-white/70 hover:bg-white/10"
             >
-              <span className="sm:hidden">{L === "en" ? "Portal" : "Portal"}</span>
-              <span className="hidden sm:inline">{L === "en" ? "Docketwise Portal" : "Portal Docketwise"}</span>
-            </a>
+              {pay}
+            </Link>
           </div>
         </div>
       </div>
 
-      <header className="sticky top-0 z-40 bg-white/96 backdrop-blur-sm shadow-sm">
-        <nav className="max-w-7xl mx-auto px-5 h-16 flex items-center justify-between gap-6">
-          <Link href="/" className="flex items-center gap-3 shrink-0">
-            <div className="w-8 h-8 text-[#B84832] shrink-0">
-              <LogoMark className="w-full h-full" />
-            </div>
-            <div className="leading-none">
-              <p className="text-[#1C0A06] text-[15px] font-medium" style={{ fontFamily: "var(--font-lora), Georgia, serif" }}>Glasinovic</p>
-              <p className="text-[#B84832] text-[9px] tracking-[0.2em] uppercase">Law Office</p>
-            </div>
-          </Link>
-
-          <ul className="hidden lg:flex items-center gap-6 xl:gap-7">
-            {navLinks.map((l) =>
-              l.href === "/services" ? (
-                <li key={l.href} className="group relative">
-                  <Link
-                    href={l.href}
-                    className={`flex items-center gap-1 text-[11px] tracking-widest uppercase font-medium transition-colors whitespace-nowrap ${
-                      active === l.href ? "text-[#B84832]" : "text-[#3A1208]/55 hover:text-[#B84832]"
-                    }`}
-                  >
-                    {l[L]} <ChevronDown size={12} className="transition-transform duration-150 group-hover:rotate-180" />
-                  </Link>
-                  <div className="absolute left-1/2 -translate-x-1/2 top-full pt-3 opacity-0 invisible translate-y-1 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-150 z-50">
-                    <div className="bg-white border border-[#1C0A06]/10 shadow-lg w-64 py-2">
-                      {services.map((s) => (
-                        <Link
-                          key={s.slug}
-                          href={`/services/${s.slug}`}
-                          className="block px-4 py-2.5 text-[12px] text-[#1C0A06]/65 hover:text-[#B84832] hover:bg-[#B84832]/5 transition-colors"
-                        >
-                          {s[L].t}
-                        </Link>
-                      ))}
-                      <div className="border-t border-[#1C0A06]/8 mt-1 pt-1">
-                        <Link
-                          href="/services"
-                          className="block px-4 py-2.5 text-[11px] uppercase tracking-wide font-bold text-[#B84832] hover:bg-[#B84832]/5 transition-colors"
-                        >
-                          {L === "en" ? "View All Services" : "Ver Todos los Servicios"}
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-              ) : (
+      <header className="sticky top-0 z-40">
+        {/* Desktop: white menu row, pinned, with the language toggle */}
+        <nav className="hidden lg:block bg-white/90 backdrop-blur-md border-b border-[#1C0A06]/8">
+          <div className="max-w-7xl mx-auto px-5 h-14 flex items-center justify-between gap-6">
+            <ul className="flex items-center gap-6 xl:gap-8">
+              {navLinks.map((l) => (
                 <li key={l.href}>
                   <Link
                     href={l.href}
-                    className={`text-[11px] tracking-widest uppercase font-medium transition-colors whitespace-nowrap ${
-                      active === l.href ? "text-[#B84832]" : "text-[#3A1208]/55 hover:text-[#B84832]"
+                    className={`text-[11px] tracking-[0.14em] uppercase font-medium transition-colors duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] whitespace-nowrap ${
+                      active === l.href ? "text-[#B84832]" : "text-[#3A1208]/60 hover:text-[#B84832]"
                     }`}
                   >
                     {l[L]}
                   </Link>
                 </li>
-              )
-            )}
-          </ul>
-
-          <div className="hidden lg:block shrink-0">
-            <Link href="/book" className="px-5 py-2.5 bg-[#B84832] hover:bg-[#1C0A06] text-white text-[10px] tracking-[0.25em] uppercase font-bold transition-colors inline-block">
-              {L === "en" ? "Free Consultation" : "Consulta Gratis"}
-            </Link>
+              ))}
+            </ul>
+            <LangToggle lang={lang} setLang={setLang} variant="light" labels="full" />
           </div>
-
-          <button onClick={() => setMobile(!mobile)} className="lg:hidden text-[#1C0A06] p-1">
-            {mobile ? <X size={22} /> : <Menu size={22} />}
-          </button>
         </nav>
 
-        {mobile && (
-          <div className="lg:hidden bg-white border-t border-[#B84832]/10 px-5 py-5 flex flex-col gap-4 shadow-lg">
-            {navLinks.map((l) =>
-              l.href === "/services" ? (
-                <details key={l.href} className="group">
-                  <summary className="flex items-center justify-between text-[11px] tracking-widest uppercase font-medium cursor-pointer marker:content-none [&::-webkit-details-marker]:hidden text-[#3A1208]/55">
-                    {l[L]}
-                    <ChevronDown size={14} className="transition-transform duration-150 group-open:rotate-180" />
-                  </summary>
-                  <div className="mt-3 flex flex-col gap-3 pl-3 border-l border-[#1C0A06]/10">
-                    {services.map((s) => (
-                      <Link
-                        key={s.slug}
-                        href={`/services/${s.slug}`}
-                        onClick={() => setMobile(false)}
-                        className="text-[11px] text-[#1C0A06]/55 hover:text-[#B84832]"
-                      >
-                        {s[L].t}
-                      </Link>
-                    ))}
-                    <Link href="/services" onClick={() => setMobile(false)} className="text-[11px] font-bold text-[#B84832]">
-                      {L === "en" ? "View All Services" : "Ver Todos los Servicios"}
-                    </Link>
-                  </div>
-                </details>
-              ) : (
+        {/* Phones/tablets: compact dark bar, pinned */}
+        <div className="lg:hidden bg-[#1C0A06] text-white">
+          <div className="px-5 h-16 flex items-center justify-between gap-3">
+            <Link href="/" className="flex items-center gap-2.5 min-w-0">
+              <LogoMark className="w-8 h-8 text-[#D4673B] shrink-0" />
+              <div className="min-w-0 leading-tight">
+                <p className="text-[18px] font-semibold truncate" style={lora}>Vannia Glasinovic</p>
+                <p className="text-[12px] italic text-white/60 truncate" style={lora}>{role}</p>
+              </div>
+            </Link>
+            <div className="flex items-center gap-2 shrink-0">
+              <LangToggle lang={lang} setLang={setLang} variant="dark" />
+              <button
+                onClick={() => setMobile(!mobile)}
+                aria-expanded={mobile}
+                aria-label={mobile ? (L === "en" ? "Close menu" : "Cerrar menú") : (L === "en" ? "Open menu" : "Abrir menú")}
+                className="p-1.5 text-white"
+              >
+                {mobile ? <X size={22} strokeWidth={1.5} /> : <Menu size={22} strokeWidth={1.5} />}
+              </button>
+            </div>
+          </div>
+
+          {mobile && (
+            <div className="border-t border-white/10 px-5 py-5 flex flex-col gap-4">
+              {navLinks.map((l) => (
                 <Link
                   key={l.href}
                   href={l.href}
                   onClick={() => setMobile(false)}
-                  className={`text-[11px] tracking-widest uppercase text-left font-medium ${
-                    active === l.href ? "text-[#B84832]" : "text-[#3A1208]/55 hover:text-[#B84832]"
+                  className={`text-[12px] tracking-[0.14em] uppercase font-medium ${
+                    active === l.href ? "text-[#D4673B]" : "text-white/70 hover:text-white"
                   }`}
                 >
                   {l[L]}
                 </Link>
-              )
-            )}
-            <Link href="/book" onClick={() => setMobile(false)} className="mt-1 py-3 bg-[#B84832] text-white text-[10px] tracking-[0.25em] uppercase font-bold text-center">
-              {L === "en" ? "Free Consultation" : "Consulta Gratis"}
-            </Link>
-          </div>
-        )}
+              ))}
+            </div>
+          )}
+        </div>
       </header>
+
+      {/* Phones/tablets: call row under the pinned bar (scrolls away) */}
+      <a href={`tel:${PHONE_TEL}`} className="lg:hidden flex items-center justify-between gap-3 bg-[#1C0A06] px-5 pb-4 pt-1">
+        <span className="text-[14px] italic text-white/60" style={lora}>{call}</span>
+        <span className="inline-flex items-center gap-2 text-[20px] font-semibold tabular-nums text-[#D4673B]" style={lora}>
+          <Phone size={16} strokeWidth={1.75} /> {PHONE_DISPLAY}
+        </span>
+      </a>
     </>
   );
 }
