@@ -50,7 +50,7 @@ export function SiteFooter({ lang, setLang }: { lang: Lang; setLang: (l: Lang) =
           <div className="space-y-3">
             <p className="text-white/25 text-xs">{PHONE_DISPLAY}</p>
             <p className="text-white/25 text-xs">{EMAIL}</p>
-            <p className="text-white/25 text-xs">Eugene, Oregon</p>
+            <p className="text-white/25 text-xs">3470 High St, Eugene, OR 97405</p>
           </div>
         </div>
       </div>
