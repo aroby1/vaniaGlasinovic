@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { LogoMark } from "@/components/logo-mark";
 import { LangToggle } from "@/components/lang-toggle";
 import { PHONE_DISPLAY, EMAIL, type Lang } from "@/lib/site";
 
@@ -12,10 +11,7 @@ export function SiteFooter({ lang, setLang }: { lang: Lang; setLang: (l: Lang) =
     <footer className="bg-[#080201] border-t border-white/5">
       <div className="max-w-7xl mx-auto px-6 lg:px-16 py-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
         <div>
-          <div className="flex items-center gap-3 mb-5">
-            <div className="w-8 h-8 text-[#D4673B] shrink-0">
-              <LogoMark className="w-full h-full" />
-            </div>
+          <div className="mb-5">
             <div className="leading-none">
               <p className="text-white text-[15px] font-medium" style={{ fontFamily: "var(--font-lora), Georgia, serif" }}>Glasinovic</p>
               <p className="text-[#D4673B] text-[9px] tracking-[0.2em] uppercase">Law Office</p>

@@ -3,7 +3,6 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Menu, X, Phone } from "lucide-react";
-import { LogoMark } from "@/components/logo-mark";
 import { LangToggle } from "@/components/lang-toggle";
 import { PHONE_DISPLAY, PHONE_TEL, navLinks, type Lang } from "@/lib/site";
 
@@ -32,8 +31,7 @@ export function SiteHeader({
       {/* Desktop masthead (scrolls away) */}
       <div className="hidden lg:block bg-[#1C0A06] text-white">
         <div className="max-w-7xl mx-auto px-5 py-6 flex items-center justify-between gap-8">
-          <Link href="/" className="flex items-center gap-4 min-w-0">
-            <LogoMark className="w-12 h-12 text-[#D4673B] shrink-0" />
+          <Link href="/" className="min-w-0">
             <div className="min-w-0">
               <p className="text-[34px] leading-none font-semibold tracking-[-0.01em]" style={lora}>Vannia Glasinovic</p>
               <p className="mt-2 text-[15px] italic text-white/60" style={lora}>
@@ -83,8 +81,7 @@ export function SiteHeader({
         {/* Phones/tablets: compact dark bar, pinned */}
         <div className="lg:hidden bg-[#1C0A06] text-white">
           <div className="px-5 h-16 flex items-center justify-between gap-3">
-            <Link href="/" className="flex items-center gap-2.5 min-w-0">
-              <LogoMark className="w-8 h-8 text-[#D4673B] shrink-0" />
+            <Link href="/" className="min-w-0">
               <div className="min-w-0 leading-tight">
                 <p className="text-[18px] font-semibold truncate" style={lora}>Vannia Glasinovic</p>
                 <p className="text-[12px] italic text-white/60 truncate" style={lora}>{role}</p>
