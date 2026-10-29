@@ -15,9 +15,9 @@ const geist = Geist({
   subsets: ["latin", "latin-ext"],
 });
 
-const TITLE_DEFAULT = "Vannia Glasinovic | Abogada de Inmigración y Medio Ambiente en Eugene, Oregón";
+const TITLE_DEFAULT = "Vannia Glasinovic | Abogada de Inmigración en Eugene, Oregón";
 const DESCRIPTION =
-  "Abogada de inmigración y derecho ambiental en Eugene, Oregón. Ciudadanía, asilo, defensa contra la deportación y más, en español e inglés.";
+  "Abogada de inmigración en Eugene, Oregón. Ciudadanía, asilo, defensa contra la deportación y más, en español e inglés.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

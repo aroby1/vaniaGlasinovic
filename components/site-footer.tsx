@@ -23,8 +23,8 @@ export function SiteFooter({ lang, setLang }: { lang: Lang; setLang: (l: Lang) =
           </div>
           <p className="text-white/25 text-xs leading-relaxed mb-5">
             {L === "en"
-              ? "Immigration & Environmental Law. Serving Oregon and California."
-              : "Derecho de Inmigración y Ambiental. Sirviendo a Oregón y California."}
+              ? "Immigration Law. Serving Oregon and California."
+              : "Derecho de Inmigración. Sirviendo a Oregón y California."}
           </p>
           <LangToggle lang={lang} setLang={setLang} variant="dark" />
         </div>

@@ -3,8 +3,7 @@
 import { useState } from "react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
-import { Cta } from "@/components/cta";
-import { PHONE_TEL, type Lang } from "@/lib/site";
+import { type Lang } from "@/lib/site";
 import { useSyncHtmlLang } from "@/lib/use-sync-html-lang";
 
 const lora = { fontFamily: "var(--font-lora), Georgia, serif" };
@@ -37,7 +36,6 @@ const copy = {
     ],
     familyTitle: "Mi familia",
     family: "Vannia vive en Oregon con sus hijos, Mara y Sebi, y su perro Chiqui. Ellos son su mayor orgullo y quienes, día a día, le dan perspectiva y le siguen enseñando.",
-    cta: "Agende una consulta",
   },
   en: {
     eyebrow: "About me",
@@ -65,7 +63,6 @@ const copy = {
     ],
     familyTitle: "My family",
     family: "Vannia lives in Oregon with her children, Mara and Sebi, and her dog, Chiqui. They are her greatest pride, and every day they give her perspective and keep teaching her.",
-    cta: "Schedule a consultation",
   },
 };
 
@@ -131,10 +128,6 @@ export default function AboutPage() {
             <h2 className="text-[#1C0A06] text-[2rem] leading-tight mb-6" style={lora}>{c.familyTitle}</h2>
             <p>{c.family}</p>
           </div>
-        </section>
-
-        <section className="bg-[#FAF6F1] border-t border-[#1C0A06]/10 py-20 text-center px-6">
-          <Cta href={`tel:${PHONE_TEL}`}>{c.cta}</Cta>
         </section>
       </main>
 

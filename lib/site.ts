@@ -5,9 +5,6 @@ export const PHONE_TEL = "+15419085079";
 export const EMAIL = "vannia.glasinovic@gmail.com";
 export const SITE_URL = "https://www.glasinoviclaw.com";
 
-// Left empty on purpose — Vannia doesn't have online scheduling set up yet.
-export const CALENDLY_URL = "";
-
 // Docketwise's client portal login is one universal URL for every firm (client.docketwise.com),
 // not a firm-specific address — this is correct as-is once Vannia has Docketwise + LawPay set up.
 export const PAYMENT_URL = "https://client.docketwise.com";

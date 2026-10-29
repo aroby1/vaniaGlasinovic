@@ -28,7 +28,7 @@ export default function Image() {
           Vannia Glasinovic
         </div>
         <div style={{ fontSize: 34, color: "rgba(255,255,255,0.6)", marginTop: 28, maxWidth: 820, display: "flex" }}>
-          Abogada de Inmigración y Medio Ambiente en Eugene, Oregón
+          Abogada de Inmigración en Eugene, Oregón
         </div>
       </div>
     ),
