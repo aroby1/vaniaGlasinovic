@@ -5,8 +5,8 @@ import { ChevronDown } from "lucide-react";
 import { Cta } from "@/components/cta";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
-import { services, type Lang } from "@/lib/site";
-import { useSyncHtmlLang } from "@/lib/use-sync-html-lang";
+import { services } from "@/lib/site";
+import { useLang } from "@/lib/use-sync-html-lang";
 
 const HERO_BG = "/hero-bolivia.webp";
 // Trimmed photo, pre-enlarged 2× with lanczos + unsharp (ffmpeg) so it reads crisper than the browser's own upscale.
@@ -14,10 +14,9 @@ const HERO_BG = "/hero-bolivia.webp";
 const HERO_TRIMMED = "/hero-bolivia-trimmed-sharp.webp";
 
 export default function Home() {
-  const [lang, setLang] = useState<Lang>("es");
+  const [lang, setLang] = useLang();
   const [activeSvc, setActiveSvc] = useState(0);
   const L = lang;
-  useSyncHtmlLang(lang);
   const shown = services[activeSvc];
 
   return (

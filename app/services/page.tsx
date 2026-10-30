@@ -1,15 +1,13 @@
 "use client";
 
-import { useState } from "react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
-import { services, type Lang } from "@/lib/site";
-import { useSyncHtmlLang } from "@/lib/use-sync-html-lang";
+import { services } from "@/lib/site";
+import { useLang } from "@/lib/use-sync-html-lang";
 
 export default function ServicesPage() {
-  const [lang, setLang] = useState<Lang>("es");
+  const [lang, setLang] = useLang();
   const L = lang;
-  useSyncHtmlLang(lang);
 
   return (
     <div className="min-h-screen bg-white text-[#1C0A06]">

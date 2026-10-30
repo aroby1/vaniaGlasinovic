@@ -1,10 +1,8 @@
 "use client";
 
-import { useState } from "react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
-import { type Lang } from "@/lib/site";
-import { useSyncHtmlLang } from "@/lib/use-sync-html-lang";
+import { useLang } from "@/lib/use-sync-html-lang";
 
 const lora = { fontFamily: "var(--font-lora), Georgia, serif" };
 
@@ -67,9 +65,8 @@ const copy = {
 };
 
 export default function AboutPage() {
-  const [lang, setLang] = useState<Lang>("es");
+  const [lang, setLang] = useLang();
   const c = copy[lang];
-  useSyncHtmlLang(lang);
 
   return (
     <div className="min-h-screen bg-white text-[#1C0A06]">

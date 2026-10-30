@@ -1,11 +1,9 @@
 "use client";
 
-import { useState } from "react";
 import { ExternalLink } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
-import { type Lang } from "@/lib/site";
-import { useSyncHtmlLang } from "@/lib/use-sync-html-lang";
+import { useLang } from "@/lib/use-sync-html-lang";
 
 const groups = [
   {
@@ -38,9 +36,8 @@ const groups = [
 ];
 
 export default function ResourcesPage() {
-  const [lang, setLang] = useState<Lang>("es");
+  const [lang, setLang] = useLang();
   const L = lang;
-  useSyncHtmlLang(lang);
 
   return (
     <div className="min-h-screen bg-white text-[#1C0A06]">

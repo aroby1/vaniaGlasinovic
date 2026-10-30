@@ -1,17 +1,15 @@
 "use client";
 
-import { useState } from "react";
 import { CreditCard, Lock, ShieldCheck, Phone, Mail } from "lucide-react";
 import { Cta } from "@/components/cta";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
-import { PAYMENT_URL, PHONE_DISPLAY, PHONE_TEL, EMAIL, type Lang } from "@/lib/site";
-import { useSyncHtmlLang } from "@/lib/use-sync-html-lang";
+import { PAYMENT_URL, PHONE_DISPLAY, PHONE_TEL, EMAIL } from "@/lib/site";
+import { useLang } from "@/lib/use-sync-html-lang";
 
 export default function PaymentPage() {
-  const [lang, setLang] = useState<Lang>("es");
+  const [lang, setLang] = useLang();
   const L = lang;
-  useSyncHtmlLang(lang);
 
   return (
     <div className="min-h-screen bg-white text-[#1C0A06]">
